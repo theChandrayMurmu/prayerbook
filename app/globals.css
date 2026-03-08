@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+:root {
+  --gold: #c9a227;
+  --ink:  #1a1209;
+  --parchment: #f9edda;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f9edda; }
+::-webkit-scrollbar-thumb { background: #c9a227; border-radius: 3px; }
+
+/* ── Gold shimmer text ── */
+.gold-shimmer {
+  background: linear-gradient(90deg, #b8871f, #f0d060, #b8871f);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* ── Grain overlay ── */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Cards ── */
+.prayer-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.prayer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(201,162,39,0.12);
+}
+
+/* ── Btn gold ── */
+.btn-gold {
+  background: linear-gradient(135deg, #c9a227, #e8c547);
+  transition: all 0.25s ease;
+}
+.btn-gold:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 20px rgba(201,162,39,0.4);
+  transform: translateY(-1px);
+}
+.btn-gold:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ── Input ── */
+.pb-input {
+  background: rgba(249,237,218,0.6);
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a1209;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.pb-input::placeholder { color: rgba(79,61,34,0.35); }
+.pb-input:focus {
+  border-color: rgba(201,162,39,0.7);
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.1);
+  background: rgba(249,237,218,0.9);
+}
+
+/* ── Heatmap cell ── */
+.hm-cell {
+  transition: transform 0.1s, box-shadow 0.15s;
+}
+.hm-cell:hover {
+  transform: scale(1.6);
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 0 6px rgba(201,162,39,0.6);
+}
+
+/* ── Streak fire ── */
+.streak-fire {
+  animation: fire-pulse 2s ease-in-out infinite;
+}
+@keyframes fire-pulse {
+  0%,100% { text-shadow: 0 0 18px rgba(251,146,60,0.8); }
+  50%      { text-shadow: 0 0 35px rgba(251,146,60,1), 0 0 55px rgba(251,146,60,0.5); }
+}
+
+/* ── Sidebar active dot ── */
+.nav-dot { display: none; }
+.nav-active .nav-dot { display: block; }
