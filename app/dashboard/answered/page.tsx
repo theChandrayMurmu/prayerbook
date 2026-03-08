@@ -40,11 +40,11 @@ export default function AnsweredPage() {
             className="bg-gradient-to-r from-ink-900 to-ink-800 rounded-2xl p-6 mb-7 text-center">
             <div className="flex items-center justify-center gap-3 mb-1">
               <span className="text-3xl">✨</span>
-              <span className="font-serif text-5xl text-yellow-300 font-bold">{prayers.length}</span>
+              <span className="font-serif text-5xl text-emerald-300 font-bold">{prayers.length}</span>
               <span className="text-3xl">✨</span>
             </div>
             <p className="text-white/50 font-sans text-sm">prayers answered by God</p>
-            <p className="text-yellow-500/40 text-xs font-sans mt-1.5 italic font-serif">
+            <p className="text-emerald-500/40 text-xs font-sans mt-1.5 italic font-serif">
               &ldquo;He has done great things for us, and we are filled with joy.&rdquo; — Psalm 126:3
             </p>
           </motion.div>

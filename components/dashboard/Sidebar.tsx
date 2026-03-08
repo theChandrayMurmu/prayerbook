@@ -19,17 +19,17 @@ export default function Sidebar() {
     <motion.aside
       animate={{ width: open ? 240 : 64 }}
       transition={{ duration: 0.28, ease: "easeInOut" }}
-      className="relative flex-shrink-0 h-screen sticky top-0 bg-ink-900 border-r border-yellow-900/20 flex flex-col overflow-hidden z-20"
+      className="relative flex-shrink-0 h-screen sticky top-0 bg-ink-900 border-r border-emerald-900/20 flex flex-col overflow-hidden z-20"
     >
       {/* Logo */}
-      <div className="flex items-center gap-2.5 px-4 py-5 border-b border-yellow-900/20 min-h-[64px]">
-        <div className="relative w-8 h-8 rounded-full border border-yellow-500/35 bg-yellow-500/10 flex items-center justify-center flex-shrink-0">
-          <span className="text-yellow-300 text-sm">✝</span>
+      <div className="flex items-center gap-2.5 px-4 py-5 border-b border-emerald-900/20 min-h-[64px]">
+        <div className="relative w-8 h-8 rounded-full border border-emerald-500/35 bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+          <span className="text-emerald-300 text-sm">✝</span>
         </div>
         <AnimatePresence>
           {open && (
             <motion.span initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} className="font-serif text-lg text-white whitespace-nowrap">
-              Prayer<span className="text-yellow-400">Book</span>
+              Prayer<span className="text-emerald-400">Book</span>
             </motion.span>
           )}
         </AnimatePresence>
@@ -38,7 +38,7 @@ export default function Sidebar() {
       {/* Toggle button */}
       <button
         onClick={() => setOpen(!open)}
-        className="absolute top-[18px] -right-3 w-6 h-6 bg-yellow-600 hover:bg-yellow-500 rounded-full text-white text-xs flex items-center justify-center shadow-md transition-colors z-30"
+        className="absolute top-[18px] -right-3 w-6 h-6 bg-emerald-600 hover:bg-emerald-500 rounded-full text-white text-xs flex items-center justify-center shadow-md transition-colors z-30"
       >
         {open ? "‹" : "›"}
       </button>
@@ -52,7 +52,7 @@ export default function Sidebar() {
               <motion.div
                 whileHover={{ x: 2 }}
                 className={`relative flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors duration-150 ${
-                  active ? "bg-yellow-500/18 border border-yellow-500/25 text-yellow-300" : "text-white/45 hover:text-white/75 hover:bg-white/5"
+                  active ? "bg-emerald-500/18 border border-emerald-500/25 text-emerald-300" : "text-white/45 hover:text-white/75 hover:bg-white/5"
                 }`}
               >
                 <span className="text-lg flex-shrink-0 leading-none">{item.icon}</span>
@@ -63,7 +63,7 @@ export default function Sidebar() {
                     </motion.span>
                   )}
                 </AnimatePresence>
-                {active && <motion.div layoutId="active-dot" className="absolute right-3 w-1.5 h-1.5 rounded-full bg-yellow-400" />}
+                {active && <motion.div layoutId="active-dot" className="absolute right-3 w-1.5 h-1.5 rounded-full bg-emerald-400" />}
               </motion.div>
             </Link>
           );
@@ -71,7 +71,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom: back to landing */}
-      <div className="p-3 border-t border-yellow-900/20">
+      <div className="p-3 border-t border-emerald-900/20">
         <Link href="/">
           <div className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors ${open ? "" : "justify-center"}`}>
             <span className="text-base flex-shrink-0">←</span>

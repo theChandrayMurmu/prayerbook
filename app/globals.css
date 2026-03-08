@@ -7,9 +7,9 @@
 * { box-sizing: border-box; }
 
 :root {
-  --gold: #c9a227;
+  --emerald: #10b981;
   --ink:  #1a1209;
-  --parchment: #f9edda;
+  --parchment: #f0fdf4;
 }
 
 html { scroll-behavior: smooth; }
@@ -21,12 +21,12 @@ body {
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar       { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: #f9edda; }
-::-webkit-scrollbar-thumb { background: #c9a227; border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 3px; }
 
-/* ── Gold shimmer text ── */
+/* ── Gold shimmer text (now green) ── */
 .gold-shimmer {
-  background: linear-gradient(90deg, #b8871f, #f0d060, #b8871f);
+  background: linear-gradient(90deg, #059669, #34d399, #059669);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -57,36 +57,36 @@ body {
   box-shadow: 0 16px 40px rgba(201,162,39,0.12);
 }
 
-/* ── Btn gold ── */
+/* ── Btn green (kept as .btn-gold class name for now but colors changed) ── */
 .btn-gold {
-  background: linear-gradient(135deg, #c9a227, #e8c547);
+  background: linear-gradient(135deg, #10b981, #34d399);
   transition: all 0.25s ease;
 }
 .btn-gold:hover:not(:disabled) {
   filter: brightness(1.08);
-  box-shadow: 0 6px 20px rgba(201,162,39,0.4);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
   transform: translateY(-1px);
 }
 .btn-gold:disabled { opacity: 0.55; cursor: not-allowed; }
 
 /* ── Input ── */
 .pb-input {
-  background: rgba(249,237,218,0.6);
-  border: 1px solid rgba(201,162,39,0.3);
+  background: rgba(240, 253, 244, 0.6);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 10px;
   padding: 10px 14px;
   width: 100%;
   font-family: inherit;
   font-size: 14px;
-  color: #1a1209;
+  color: var(--ink);
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
 }
-.pb-input::placeholder { color: rgba(79,61,34,0.35); }
+.pb-input::placeholder { color: rgba(5, 150, 105, 0.4); }
 .pb-input:focus {
-  border-color: rgba(201,162,39,0.7);
-  box-shadow: 0 0 0 3px rgba(201,162,39,0.1);
-  background: rgba(249,237,218,0.9);
+  border-color: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  background: rgba(240, 253, 244, 0.9);
 }
 
 /* ── Heatmap cell ── */

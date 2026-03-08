@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/dashboard/streak/page": "app/dashboard/streak/page.js",
+  "/dashboard/answered/page": "app/dashboard/answered/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
+}

@@ -33,7 +33,7 @@ export default function Overview() {
         <p className="text-ink-600/50 text-xs font-sans mb-1">
           {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
         </p>
-        <h1 className="font-serif text-3xl text-ink-900">{greet()}, <span className="italic text-yellow-600">faithful one</span> 🙏</h1>
+        <h1 className="font-serif text-3xl text-ink-900">{greet()}, <span className="italic text-emerald-600">faithful one</span> 🙏</h1>
       </motion.div>
 
       {/* Year progress */}
@@ -44,11 +44,11 @@ export default function Overview() {
             <p className="font-serif text-ink-900 font-medium">Your {new Date().getFullYear()} Prayer Journey</p>
             <p className="text-ink-600/45 text-xs font-sans mt-0.5">Day {yp.day} of {yp.total} · {yp.pct}% through the year</p>
           </div>
-          <span className="font-serif text-3xl font-bold text-yellow-600">{yp.pct}%</span>
+          <span className="font-serif text-3xl font-bold text-emerald-600">{yp.pct}%</span>
         </div>
         <div className="h-2 bg-parchment-200 rounded-full overflow-hidden">
           <motion.div initial={{ width: 0 }} animate={{ width: `${yp.pct}%` }} transition={{ duration: 1.1, delay: 0.3 }}
-            className="h-full rounded-full bg-gradient-to-r from-yellow-500 to-amber-400" />
+            className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" />
         </div>
         <p className="text-ink-600/35 text-[11px] font-sans mt-1.5">{yp.total - yp.day} days left to pray faithfully this year</p>
       </motion.div>
@@ -56,7 +56,7 @@ export default function Overview() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mb-5">
         {[
-          { label: "Total Prayers",    value: stats.total,        icon: "📖", grad: "from-amber-400 to-yellow-500" },
+          { label: "Total Prayers",    value: stats.total,        icon: "📖", grad: "from-teal-400 to-emerald-500" },
           { label: "Answered",         value: stats.answered,     icon: "✨", grad: "from-emerald-400 to-teal-500" },
           { label: "Prayer Sessions",  value: stats.totalEntries, icon: "🙏", grad: "from-violet-400 to-purple-500" },
           { label: "Day Streak",       value: streak.currentStreak, icon: "🔥", grad: "from-orange-400 to-red-500" },
@@ -90,13 +90,13 @@ export default function Overview() {
       {/* Prayed today badge */}
       {!prayedToday && prayers.length > 0 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.55 }}
-          className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-5 flex items-center gap-3">
+          className="bg-teal-50 border border-teal-200 rounded-2xl p-4 mb-5 flex items-center gap-3">
           <span className="text-2xl">⏰</span>
           <div className="flex-1">
-            <p className="font-sans text-sm font-medium text-amber-800">You haven&apos;t prayed today yet</p>
-            <p className="font-sans text-xs text-amber-600/70">Open a prayer and tap <strong>Mark Prayed</strong> to keep your streak alive.</p>
+            <p className="font-sans text-sm font-medium text-teal-800">You haven&apos;t prayed today yet</p>
+            <p className="font-sans text-xs text-teal-600/70">Open a prayer and tap <strong>Mark Prayed</strong> to keep your streak alive.</p>
           </div>
-          <Link href="/dashboard/prayers" className="text-amber-700 text-xs font-semibold font-sans hover:text-amber-800">Go →</Link>
+          <Link href="/dashboard/prayers" className="text-teal-700 text-xs font-semibold font-sans hover:text-teal-800">Go →</Link>
         </motion.div>
       )}
 
@@ -107,7 +107,7 @@ export default function Overview() {
         {stats.categoryBreakdown.length === 0 ? (
           <div className="text-center py-6">
             <p className="text-ink-600/40 text-sm font-sans mb-2">No prayers yet.</p>
-            <Link href="/dashboard/prayers" className="text-yellow-600 text-sm font-medium hover:text-yellow-700">Add your first prayer →</Link>
+            <Link href="/dashboard/prayers" className="text-emerald-600 text-sm font-medium hover:text-emerald-700">Add your first prayer →</Link>
           </div>
         ) : (
           <div className="space-y-2.5">
@@ -124,7 +124,7 @@ export default function Overview() {
                     </div>
                     <div className="h-1.5 bg-parchment-200 rounded-full">
                       <motion.div initial={{ width: 0 }} animate={{ width: `${(item.count / max) * 100}%` }} transition={{ duration: 0.8, delay: 0.7 }}
-                        className="h-full rounded-full bg-gradient-to-r from-yellow-500 to-amber-400" />
+                        className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" />
                     </div>
                   </div>
                 </div>

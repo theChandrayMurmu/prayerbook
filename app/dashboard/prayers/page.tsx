@@ -7,7 +7,9 @@ import { PRAYER_CATEGORIES, getCat } from "@/lib/constants";
 import { relativeDate, fmtDate } from "@/lib/utils";
 import type { PrayerCategory } from "@/lib/store";
 
-export default function PrayersPage() {
+import { Suspense } from "react";
+
+function PrayersContent() {
   const searchParams   = useSearchParams();
   const [prayers, setPrayers]     = useState<Prayer[]>([]);
   const [filter, setFilter]       = useState("ALL");
@@ -71,7 +73,7 @@ export default function PrayersPage() {
           return (
             <button key={id} onClick={() => setFilter(id)}
               className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-sans transition-all ${
-                filter === id ? "bg-ink-900 text-yellow-300" : "bg-white/60 text-ink-700/55 hover:bg-white border border-parchment-300/50"
+                filter === id ? "bg-ink-900 text-emerald-300" : "bg-white/60 text-ink-700/55 hover:bg-white border border-parchment-300/50"
               }`}>
               {cat ? <>{cat.icon} {cat.label}</> : "All"}
             </button>
@@ -117,7 +119,7 @@ export default function PrayersPage() {
                       <motion.button whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}
                         onClick={(e) => { e.stopPropagation(); handleLog(prayer.id); }}
                         className={`text-[11px] px-3 py-1.5 rounded-lg font-sans font-medium transition-colors flex-shrink-0 ${
-                          prayingId === prayer.id ? "bg-emerald-100 text-emerald-700" : "bg-yellow-100 text-yellow-700 hover:bg-yellow-200"
+                          prayingId === prayer.id ? "bg-emerald-100 text-emerald-700" : "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
                         }`}>
                         {prayingId === prayer.id ? "✓ Prayed!" : "🙏 Prayed"}
                       </motion.button>
@@ -145,6 +147,14 @@ export default function PrayersPage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function PrayersPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center font-serif text-ink-900">Loading Prayers...</div>}>
+      <PrayersContent />
+    </Suspense>
   );
 }
 
@@ -186,7 +196,7 @@ function AddModal({ onClose, onDone }: { onClose: () => void; onDone: () => void
               {PRAYER_CATEGORIES.map((c) => (
                 <button key={c.id} onClick={() => setCat(c.id as PrayerCategory)}
                   className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-sans transition-all text-left ${
-                    cat === c.id ? "border-yellow-400 bg-yellow-50 text-yellow-800" : "border-parchment-300/50 bg-white/50 text-ink-700/55 hover:border-yellow-300"
+                    cat === c.id ? "border-emerald-400 bg-emerald-50 text-emerald-800" : "border-parchment-300/50 bg-white/50 text-ink-700/55 hover:border-emerald-300"
                   }`}>
                   <span>{c.icon}</span><span>{c.label}</span>
                 </button>
@@ -242,7 +252,7 @@ function DetailModal({ prayer, onClose, onLog, onAnswered, onDelete }:
             <div className="space-y-1 max-h-28 overflow-y-auto">
               {prayer.entries.slice(0, 5).map((e) => (
                 <div key={e.id} className="flex items-center gap-2 text-xs text-ink-600/45 font-sans">
-                  <span className="w-1 h-1 rounded-full bg-yellow-400/60 flex-shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-emerald-400/60 flex-shrink-0" />
                   <span>{relativeDate(e.prayedAt)}</span>
                   {e.note && <span className="text-ink-600/25 truncate">— {e.note}</span>}
                 </div>

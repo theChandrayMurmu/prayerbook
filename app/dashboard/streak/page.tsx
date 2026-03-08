@@ -9,10 +9,10 @@ const DAY_LBLS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 function cellColor(n: number) {
   if (n === 0) return "bg-parchment-200/60";
-  if (n === 1) return "bg-yellow-200";
-  if (n === 2) return "bg-yellow-400";
-  if (n === 3) return "bg-amber-500";
-  return "bg-amber-700";
+  if (n === 1) return "bg-emerald-200";
+  if (n === 2) return "bg-emerald-400";
+  if (n === 3) return "bg-teal-500";
+  return "bg-teal-700";
 }
 
 export default function StreakPage() {
@@ -127,7 +127,7 @@ export default function StreakPage() {
                         initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: wi * 0.003 }}
                         className={`w-[11px] h-[11px] rounded-[2px] hm-cell ${
                           future ? "bg-parchment-200/20"
-                          : isToday ? `${cellColor(count)} ring-1 ring-yellow-500 ring-offset-1 ring-offset-parchment-50`
+                          : isToday ? `${cellColor(count)} ring-1 ring-emerald-500 ring-offset-1 ring-offset-parchment-50`
                           : cellColor(count)
                         }`}
                       />
@@ -150,7 +150,7 @@ export default function StreakPage() {
             return (
               <motion.div key={m} whileHover={{ scale: 1.05 }}
                 className={`text-center p-3 rounded-xl border transition-all ${
-                  achieved ? "border-yellow-300 bg-yellow-50" : "border-parchment-300/40 bg-parchment-50/50 opacity-50"
+                  achieved ? "border-emerald-300 bg-emerald-50" : "border-parchment-300/40 bg-parchment-50/50 opacity-50"
                 }`}>
                 <div className="text-xl mb-0.5">{achieved ? "🏆" : "🔒"}</div>
                 <div className="font-serif text-sm font-bold text-ink-900">{m}</div>
